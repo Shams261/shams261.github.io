@@ -20,7 +20,7 @@ Welcome to my personal developer portfolio built with **Next.js 15**, **Tailwind
 
 ## 📁 Project Structure
 
-```bash
+````bash
 .
 ├── app/                 # Next.js App Router structure
 │   └── page.tsx        # Homepage
@@ -30,25 +30,27 @@ Welcome to my personal developer portfolio built with **Next.js 15**, **Tailwind
 ├── next.config.js      # Next.js configuration
 └── tailwind.config.js  # Tailwind custom config
 
-💻 Running Locally
+## 💻 Running Locally
 
 Clone the repo and install dependencies:
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
+
+```bash
+git clone https://github.com/shams261/shams-portfolio.git
+cd shams-portfolio
 npm install
 npm run dev
 
-Open http://localhost:3000 to view it in your browser.
-
 ## ✨ Features
-	•	🎯 Fully responsive and accessible design
-	•	🧭 Smooth scrolling navigation
-	•	💡 Animated sections with Framer Motion
-	•	⚙️ Easy to maintain and customize
-	•	🌐 Deployed with CI/CD via Vercel
+
+- 🎯 Fully responsive and accessible design
+- 🧭 Smooth scrolling navigation
+- 💡 Animated sections with Framer Motion
+- ⚙️ Easy to maintain and customize
+- 🌐 Deployed with CI/CD via Vercel
 
 ## 📫 Contact
-	•	📧 Email: shamsshoaib261@gmail.com
-	•	💼 LinkedIn
-	•	🌐 Portfolio
-```
+
+- 📧 Email: shamsshoaib261@gmail.com
+- 💼 [LinkedIn](https://www.linkedin.com/in/shams-tabrez-169829167/)
+- 🌐 [Portfolio](https://shams261-github-io.vercel.app/)
+````
