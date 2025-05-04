@@ -40,14 +40,14 @@ npm run dev
 
 Open http://localhost:3000 to view it in your browser.
 
-✨ Features
+## ✨ Features
 	•	🎯 Fully responsive and accessible design
 	•	🧭 Smooth scrolling navigation
 	•	💡 Animated sections with Framer Motion
 	•	⚙️ Easy to maintain and customize
 	•	🌐 Deployed with CI/CD via Vercel
 
-📫 Contact
+## 📫 Contact
 	•	📧 Email: shamsshoaib261@gmail.com
 	•	💼 LinkedIn
 	•	🌐 Portfolio
