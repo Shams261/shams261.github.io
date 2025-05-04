@@ -40,17 +40,11 @@ cd shams-portfolio
 npm install
 npm run dev
 
-## ✨ Features
+✨ Features
+	•	🎯 Fully responsive and accessible design
+	•	🧭 Smooth scrolling navigation
+	•	💡 Animated sections with Framer Motion
+	•	⚙️ Easy to maintain and customize
+	•	🌐 Deployed with CI/CD via Vercel
 
-- 🎯 Fully responsive and accessible design
-- 🧭 Smooth scrolling navigation
-- 💡 Animated sections with Framer Motion
-- ⚙️ Easy to maintain and customize
-- 🌐 Deployed with CI/CD via Vercel
-
-## 📫 Contact
-
-- 📧 Email: shamsshoaib261@gmail.com
-- 💼 [LinkedIn](https://www.linkedin.com/in/shams-tabrez-169829167/)
-- 🌐 [Portfolio](https://shams261-github-io.vercel.app/)
 ````
