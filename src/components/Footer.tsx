@@ -5,10 +5,9 @@ import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 const Footer = () => {
-  const [currentYear, setCurrentYear] = useState(2024); // Default to current year
+  const [currentYear, setCurrentYear] = useState(2024);
 
   useEffect(() => {
-    // Update the year on the client side
     setCurrentYear(new Date().getFullYear());
   }, []);
 
@@ -31,7 +30,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer id="connect" className="bg-gray-900 text-white py-12">
+    <footer id="connect" className="bg-gray-900 text-white py-10">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-8">
           <div>
@@ -74,11 +73,11 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div>
-            <h3 className="text-xl font-bold mb-4 text-indigo-400">
+          <div className="flex flex-col items-start md:items-end space-y-4">
+            <h3 className="text-xl font-bold text-indigo-400">
               Connect With Me
             </h3>
-            <div className="flex space-x-4 mb-6">
+            <div className="flex space-x-4">
               {socialLinks.map((link, index) => (
                 <motion.a
                   key={index}
@@ -86,7 +85,7 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={link.label}
-                  className="bg-gray-800 hover:bg-indigo-600 text-white p-3 rounded-full transition-colors"
+                  className="bg-gray-800 hover:bg-indigo-600 text-white p-3 rounded-full ring-2 ring-transparent hover:ring-indigo-500 transition"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -94,7 +93,7 @@ const Footer = () => {
                 </motion.a>
               ))}
             </div>
-            <p className="text-gray-300">
+            <p className="text-gray-300 text-sm text-center md:text-right">
               Feel free to reach out for collaborations or just a friendly chat!
             </p>
           </div>

@@ -3,16 +3,31 @@
 import Section from "./Section";
 import { motion } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt, FaCode } from "react-icons/fa";
-// Import Image when you have actual project images
-// import Image from "next/image";
 
 const Projects = () => {
   const projects = [
     {
+      title: "DevTinder",
+      description:
+        "DevTinder is a platform built for developers to connect, collaborate, and build side projects together. Whether you're looking for a co-founder, mentor, or teammate — this is your space.",
+      image: "/devtinderImg.png",
+      technologies: [
+        "React",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "TailwindCSS",
+        "Socket.io",
+        "OpenAI API",
+      ],
+      github: "https://github.com/Shams261/devtinder",
+      demo: "https://devtinder.rocks/",
+    },
+    {
       title: "Text-Generator",
       description:
         "A machine learning project that generates coherent and contextually relevant text based on input data using advanced NLP techniques.",
-      image: "/placeholder.jpg",
+      image: "/textgeneratorImg.jpg",
       technologies: [
         "Python",
         "NLP",
@@ -27,7 +42,7 @@ const Projects = () => {
       title: "TweetSentimentAnalysis",
       description:
         "Analyzes and classifies the sentiment of tweets as positive or negative, providing insights into public opinion on various topics.",
-      image: "/placeholder.jpg",
+      image: "/tweetsentimentImg.jpeg",
       technologies: [
         "Python",
         "NLP",
@@ -42,7 +57,7 @@ const Projects = () => {
       title: "Music-Genre-Classification",
       description:
         "Utilizes machine learning algorithms to accurately classify music tracks into their respective genres based on audio features.",
-      image: "/placeholder.jpg",
+      image: "/musicgenreclassificationImg.png",
       technologies: [
         "Python",
         "Machine Learning",
@@ -57,7 +72,7 @@ const Projects = () => {
       title: "Weather App",
       description:
         "A web application that provides real-time weather updates and forecasts based on user location.",
-      image: "/placeholder.jpg",
+      image: "/weatherImg.png",
       technologies: [
         "HTML",
         "CSS",
@@ -95,13 +110,13 @@ const Projects = () => {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="grid md:grid-cols-2 gap-8"
+        className="grid md:grid-cols-2 gap-10"
       >
         {projects.map((project, index) => (
           <motion.div
             key={index}
             variants={itemVariants}
-            className="bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:z-10"
+            className="bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:z-10 w-full min-h-[400px]"
             whileHover={{
               scale: 1.05,
               boxShadow:
@@ -110,17 +125,16 @@ const Projects = () => {
             }}
           >
             <div className="relative h-48 bg-gray-200 dark:bg-gray-600 overflow-hidden">
-              {/* Replace with actual project images when available */}
-              <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-indigo-500 to-purple-600 text-white transition-transform duration-300 group-hover:scale-110">
-                <FaCode size={48} />
-              </div>
-              {/* Uncomment when you have actual images */}
-              {/* <Image 
-                src={project.image} 
-                alt={project.title} 
-                fill 
-                className="object-cover transition-transform duration-300 group-hover:scale-110"
-              /> */}
+              <img
+                src={project.image}
+                alt={project.title}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+              />
+              {project.title === "DevTinder" && (
+                <span className="absolute top-3 right-3 bg-yellow-400 text-black text-xs font-bold px-2 py-1 rounded shadow">
+                  ⭐ Featured
+                </span>
+              )}
             </div>
 
             <div className="p-6">

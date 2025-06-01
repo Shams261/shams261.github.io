@@ -25,6 +25,8 @@ import {
   SiMysql,
   SiJenkins,
   SiTensorflow,
+  SiOpenai,
+  SiHuggingface,
 } from "react-icons/si";
 import { TbApi } from "react-icons/tb";
 
@@ -92,6 +94,11 @@ const Skills = () => {
     {
       name: "Model Evaluation",
       icon: <FaChartBar size={40} className="text-[#F7931E]" />,
+    },
+    { name: "OpenAI", icon: <SiOpenai size={40} className="text-[#ffffff]" /> },
+    {
+      name: "HugginFace",
+      icon: <SiHuggingface size={40} className="text-[#ffd21e]" />,
     },
 
     // Tools & Methodologies
