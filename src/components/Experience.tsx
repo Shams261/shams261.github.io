@@ -7,7 +7,7 @@ import { FaBriefcase, FaCalendarAlt, FaMapMarkerAlt } from "react-icons/fa";
 const Experience = () => {
   const experiences = [
     {
-      title: "Application Development Analyst",
+      title: "Software Engineer",
       company: "Accenture",
       location: "Kolkata, India",
       period: "Dec 2022 - Aug 2023",
@@ -19,7 +19,7 @@ const Experience = () => {
       ],
     },
     {
-      title: "Application Development Associate",
+      title: "Junior Software Engineer",
       company: "Accenture",
       location: "Bengaluru, India",
       period: "Sept 2021 - Nov 2022",
