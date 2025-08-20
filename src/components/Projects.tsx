@@ -8,6 +8,23 @@ import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 const Projects = () => {
   const projects = [
     {
+      title: "InterviewBuddy",
+      description:
+        "A web app to practice technical interviews with AI. Features multiple interview modes (behavioral, coding/LeetCode, project), PDF resume ingestion, and streaming AI responses. Includes cost controls via rate limiting, caching, and token management.",
+      image: "/InterviewBuddy.png",
+      technologies: [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "TailwindCSS",
+        "OpenAI API",
+        "Edge Runtime",
+        "PDF.js",
+      ],
+      github: "https://github.com/Shams261/InterviewBuddy",
+      demo: "https://interviewbuddy-ai.vercel.app/",
+    },
+    {
       title: "DevTinder",
       description:
         "DevTinder is a platform built for developers to connect, collaborate, and build side projects together. Whether you're looking for a co-founder, mentor, or teammate — this is your space.",
@@ -125,13 +142,22 @@ const Projects = () => {
               zIndex: 10,
             }}
           >
-            <div className="relative h-48 bg-gray-200 dark:bg-gray-600 overflow-hidden">
+            <div
+              className={`relative ${
+                project.title === "InterviewBuddy" ? "h-56" : "h-48"
+              } bg-gray-200 dark:bg-gray-600 overflow-hidden`}
+            >
               <img
                 src={project.image}
                 alt={project.title}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                className={`absolute inset-0 w-full h-full transition-transform duration-300 group-hover:scale-110 ${
+                  project.title === "InterviewBuddy"
+                    ? "object-cover object-top"
+                    : "object-cover"
+                }`}
               />
-              {project.title === "DevTinder" && (
+              {(project.title === "DevTinder" ||
+                project.title === "InterviewBuddy") && (
                 <span className="absolute top-3 right-3 bg-yellow-400 text-black text-xs font-bold px-2 py-1 rounded shadow">
                   ⭐ Featured
                 </span>
