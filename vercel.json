@@ -2,9 +2,6 @@
   "buildCommand": "npm run build",
   "outputDirectory": ".next",
   "framework": "nextjs",
-  "env": {
-    "NEXT_PUBLIC_FORMSPREE_ID": "@formspree-id"
-  },
   "headers": [
     {
       "source": "/(.*)",
