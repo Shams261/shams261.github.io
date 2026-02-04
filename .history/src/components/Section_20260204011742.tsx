@@ -45,9 +45,9 @@ const Section = ({ id, title, children, className = "" }: SectionProps) => {
         >
           <motion.h2
             variants={variants}
-            className="text-2xl md:text-3xl font-bold text-center mb-8 text-gray-800 dark:text-white"
+            className="text-2xl md:text-3xl font-bold text-center mb-8 text-white"
           >
-            <span className="inline-block border-b-3 border-indigo-600 dark:border-indigo-400 pb-1">
+            <span className="inline-block border-b-3 border-emerald-500 pb-1">
               {title}
             </span>
           </motion.h2>
