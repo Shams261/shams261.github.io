@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FaMapMarkerAlt } from "react-icons/fa";
+import { MapPin } from "lucide-react";
 import ClientOnly from "./ClientOnly";
 
 const Hero = () => {
@@ -44,7 +44,7 @@ const Hero = () => {
                 Available for work
               </span>
               <span className="inline-flex items-center gap-2 text-sm text-gray-500">
-                <FaMapMarkerAlt size={14} />
+                <MapPin size={14} />
                 Toronto, Canada
               </span>
             </motion.div>
@@ -88,11 +88,6 @@ const Hero = () => {
                       {stat.value}
                     </span>
                     <span className="text-sm text-gray-500">{stat.label}</span>
-                    {stat.sublabel && (
-                      <span className="text-xs text-gray-400">
-                        {stat.sublabel}
-                      </span>
-                    )}
                   </div>
                 ))}
               </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FaGithub, FaExternalLinkAlt, FaArrowRight } from "react-icons/fa";
+import { Github, ExternalLink, ArrowRight } from "lucide-react";
 import Image from "next/image";
 
 const Projects = () => {
@@ -182,7 +182,7 @@ const Projects = () => {
                             className="inline-flex items-center gap-2 px-5 py-2.5 bg-black text-white text-sm rounded-full hover:bg-gray-800 transition-all duration-300 font-medium"
                             onClick={(e) => e.stopPropagation()}
                           >
-                            <FaGithub size={14} />
+                            <Github size={14} />
                             Code
                           </a>
                           {project.demo && (
@@ -193,7 +193,7 @@ const Projects = () => {
                               className="inline-flex items-center gap-2 px-5 py-2.5 border border-gray-300 text-black text-sm rounded-full hover:border-black hover:bg-gray-50 transition-all duration-300"
                               onClick={(e) => e.stopPropagation()}
                             >
-                              <FaExternalLinkAlt size={12} />
+                              <ExternalLink size={12} />
                               Demo
                             </a>
                           )}
@@ -221,9 +221,9 @@ const Projects = () => {
             rel="noopener noreferrer"
             className="group inline-flex items-center gap-3 px-8 py-4 bg-black text-white rounded-full hover:bg-gray-800 transition-all duration-300 font-medium"
           >
-            <FaGithub size={20} />
+            <Github size={20} />
             <span>View All Projects on GitHub</span>
-            <FaArrowRight
+            <ArrowRight
               size={14}
               className="group-hover:translate-x-1 transition-transform duration-300"
             />

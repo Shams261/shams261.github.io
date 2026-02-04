@@ -62,7 +62,7 @@ const Header = () => {
               className="ml-4 px-6 py-2.5 bg-black text-white text-[14px] font-semibold rounded-full hover:bg-gray-800 hover:scale-105 hover:shadow-lg transition-all duration-300 tracking-tight group"
             >
               <span className="group-hover:translate-x-1 transition-transform duration-300 inline-block">
-                Let's Talk
+                Let&apos;s Talk
               </span>
             </a>
           </nav>
@@ -130,7 +130,7 @@ const Header = () => {
                   className="inline-flex items-center justify-center mt-4 px-6 py-3 bg-black text-white font-semibold rounded-full hover:bg-gray-800 transition-all duration-300"
                   onClick={() => setIsOpen(false)}
                 >
-                  Let's Talk
+                  Let&apos;s Talk
                 </motion.a>
               </div>
             </div>

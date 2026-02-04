@@ -1,13 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import {
-  FaGithub,
-  FaLinkedin,
-  FaEnvelope,
-  FaArrowUp,
-  FaArrowRight,
-} from "react-icons/fa";
+import { Github, Linkedin, Mail, ArrowUp, ArrowRight } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 
 const Footer = () => {
@@ -25,17 +19,20 @@ const Footer = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("https://formspree.io/f/mbdknngl", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        `https://formspree.io/f/${process.env.NEXT_PUBLIC_FORMSPREE_ID}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            message: formData.message,
+          }),
         },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-        }),
-      });
+      );
 
       if (response.ok) {
         setIsSubmitted(true);
@@ -48,7 +45,7 @@ const Footer = () => {
           "Sorry, there was an error sending your message. Please try again.",
         );
       }
-    } catch (error) {
+    } catch {
       alert(
         "Sorry, there was an error sending your message. Please try again.",
       );
@@ -86,12 +83,12 @@ const Footer = () => {
 
   const socialLinks = [
     {
-      icon: <FaLinkedin size={20} />,
+      icon: <Linkedin size={20} />,
       url: "https://www.linkedin.com/in/shamstabrez-ca/",
       label: "LinkedIn",
     },
     {
-      icon: <FaGithub size={20} />,
+      icon: <Github size={20} />,
       url: "https://github.com/Shams261",
       label: "GitHub",
     },
@@ -120,7 +117,7 @@ const Footer = () => {
                   transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 >
                   <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tighter mb-6">
-                    LET'S TALK
+                    LET&apos;S TALK
                   </h3>
                   <p className="text-lg text-gray-400 mb-8 max-w-lg leading-relaxed">
                     I’m actively looking for Full‑Stack / Software Engineer
@@ -215,23 +212,23 @@ const Footer = () => {
                   className="lg:pl-8"
                 >
                   <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tighter mb-6">
-                    LET'S MAKE IT
+                    LET&apos;S MAKE IT
                     <br />
                     <span className="text-gray-400">HAPPEN</span>
                   </h2>
                   <p className="text-lg text-gray-400 mb-10 max-w-xl leading-relaxed">
-                    I'm currently open to new opportunities and collaborations.
-                    Whether you have a project in mind or just want to connect,
-                    feel free to reach out.
+                    I&apos;m currently open to new opportunities and
+                    collaborations. Whether you have a project in mind or just
+                    want to connect, feel free to reach out.
                   </p>
                   <div className="flex flex-wrap items-center gap-4">
                     <a
                       href="mailto:shamsshoaib261@gmail.com"
                       className="group inline-flex items-center gap-3 px-8 py-4 bg-white text-black font-medium rounded-full hover:bg-gray-100 transition-all duration-300"
                     >
-                      <FaEnvelope size={18} />
+                      <Mail size={18} />
                       <span>shamsshoaib261@gmail.com</span>
-                      <FaArrowRight
+                      <ArrowRight
                         size={14}
                         className="group-hover:translate-x-1 transition-transform duration-300"
                       />
@@ -303,7 +300,7 @@ const Footer = () => {
             className="fixed bottom-8 right-8 z-50 flex items-center justify-center w-12 h-12 rounded-full bg-black text-white shadow-2xl hover:bg-gray-800 transition-all duration-300 btn-hover"
             aria-label="Scroll to top"
           >
-            <FaArrowUp size={16} />
+            <ArrowUp size={16} />
           </motion.button>
         )}
       </AnimatePresence>
