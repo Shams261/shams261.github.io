@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Github, Linkedin, Mail, ArrowUp, ArrowRight } from "lucide-react";
+import { Mail, ArrowUp, ArrowRight } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 
 const Footer = () => {
