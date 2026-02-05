@@ -211,8 +211,8 @@ This project is **MIT Licensed** - see the [LICENSE](LICENSE) file for details.
   <p>Built with ❤️ using modern web technologies</p>
   <p>
     <strong>🌐 <a href="https://shams261-github-io.vercel.app/">Portfolio</a></strong> •
-    <strong>💼 <a href="https://linkedin.com/in/yourprofile">LinkedIn</a></strong> •
-    <strong>🐙 <a href="https://github.com/yourusername">GitHub</a></strong>
+    <strong>💼 <a href="https://www.linkedin.com/in/shamstabrez-ca/">LinkedIn</a></strong> •
+    <strong>🐙 <a href="https://github.com/Shams261">GitHub</a></strong>
   </p>
 </div>
 
