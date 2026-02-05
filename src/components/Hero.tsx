@@ -28,7 +28,7 @@ const Hero = () => {
         id="home"
         className="min-h-screen flex items-center relative overflow-hidden bg-white"
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-32 relative z-10 w-full">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-24 sm:py-32 relative z-10 w-full">
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -37,24 +37,24 @@ const Hero = () => {
             {/* Top Row - Status & Location */}
             <motion.div
               variants={itemVariants}
-              className="flex flex-wrap items-center gap-4 mb-12"
+              className="flex flex-wrap items-center gap-3 sm:gap-4 mb-8 sm:mb-12"
             >
-              <span className="inline-flex items-center gap-2 px-4 py-2 bg-green-50 text-green-700 rounded-full text-sm font-medium">
-                <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+              <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-green-50 text-green-700 rounded-full text-xs sm:text-sm font-medium">
+                <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-500 rounded-full animate-pulse" />
                 Available for work
               </span>
-              <span className="inline-flex items-center gap-2 text-sm text-gray-500">
-                <MapPin size={14} />
+              <span className="inline-flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-gray-500">
+                <MapPin size={12} className="sm:w-[14px] sm:h-[14px]" />
                 Toronto, Canada
               </span>
             </motion.div>
 
             {/* Main Name - Large Typography */}
             <motion.div variants={itemVariants} className="mb-8">
-              <h1 className="text-7xl sm:text-8xl md:text-9xl lg:text-[12rem] font-bold text-black leading-[0.85] tracking-tighter">
+              <h1 className="text-5xl xs:text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[12rem] font-bold text-black leading-[0.85] tracking-tighter">
                 SHAMS
               </h1>
-              <h1 className="text-7xl sm:text-8xl md:text-9xl lg:text-[12rem] font-bold text-gray-300 leading-[0.85] tracking-tighter">
+              <h1 className="text-5xl xs:text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[12rem] font-bold text-gray-300 leading-[0.85] tracking-tighter">
                 TABREZ
               </h1>
             </motion.div>
@@ -62,10 +62,10 @@ const Hero = () => {
             {/* Description Row */}
             <motion.div
               variants={itemVariants}
-              className="grid lg:grid-cols-2 gap-8 lg:gap-16"
+              className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16"
             >
               {/* Left - Description */}
-              <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-xl">
+              <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed max-w-xl">
                 Software engineer with 3+ years of experience building and
                 optimizing full stack SAAS applications, with a strong focus on
                 performance, reliability, and developer productivity.
@@ -74,7 +74,7 @@ const Hero = () => {
               </p>
 
               {/* Right - Stats */}
-              <div className="flex flex-wrap items-start gap-8">
+              <div className="flex flex-wrap items-start gap-6 sm:gap-8">
                 {[
                   { value: "3+", label: "Years at Accenture" },
                   { value: "MS", label: "Computer Science" },
@@ -84,10 +84,10 @@ const Hero = () => {
                   },
                 ].map((stat, i) => (
                   <div key={i} className="flex flex-col">
-                    <span className="text-4xl font-bold text-black">
+                    <span className="text-3xl sm:text-4xl font-bold text-black">
                       {stat.value}
                     </span>
-                    <span className="text-sm text-gray-500">{stat.label}</span>
+                    <span className="text-xs sm:text-sm text-gray-500">{stat.label}</span>
                   </div>
                 ))}
               </div>

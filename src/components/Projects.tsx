@@ -63,28 +63,28 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-16 lg:py-20 bg-white relative">
-      <div className="max-w-[1800px] mx-auto px-6 lg:px-16 xl:px-24">
+    <section id="projects" className="py-12 sm:py-16 lg:py-20 bg-white relative">
+      <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-16 xl:px-24">
         {/* Header - Large Typography */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-20 lg:mb-28"
+          className="mb-12 sm:mb-16 lg:mb-28"
         >
           {/* Large heading */}
-          <div className="flex items-end gap-4 lg:gap-6 mb-10">
-            <h2 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-bold text-black leading-[0.85] tracking-tighter">
+          <div className="flex flex-wrap items-end gap-2 sm:gap-4 lg:gap-6 mb-6 sm:mb-10">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-[10rem] font-bold text-black leading-[0.85] tracking-tighter">
               SELECTED
             </h2>
-            <h2 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-bold text-gray-400 leading-[0.85] tracking-tighter">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-[10rem] font-bold text-gray-400 leading-[0.85] tracking-tighter">
               WORK
             </h2>
           </div>
           {/* Divider line */}
-          <div className="w-full h-px bg-gray-200 mb-10" />
-          <p className="text-xl md:text-2xl text-gray-500 max-w-3xl leading-relaxed">
+          <div className="w-full h-px bg-gray-200 mb-6 sm:mb-10" />
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-500 max-w-3xl leading-relaxed">
             A selection of projects I’ve shipped, full-stack platforms and AI
             applications built with clean UX, reliable APIs, and scalable
             architecture.
@@ -110,11 +110,11 @@ const Projects = () => {
               }}
               className="group cursor-pointer"
             >
-              <div className="bg-[#f5f5f5] rounded-[2rem] lg:rounded-[2.5rem] p-6 lg:p-8 hover:bg-white transition-all duration-500 border border-transparent hover:border-gray-200 hover:shadow-2xl hover:shadow-gray-200/50">
-                <div className="grid lg:grid-cols-12 gap-6 lg:gap-10 items-center">
+              <div className="bg-[#f5f5f5] rounded-[1.5rem] sm:rounded-[2rem] lg:rounded-[2.5rem] p-4 sm:p-6 lg:p-8 hover:bg-white transition-all duration-500 border border-transparent hover:border-gray-200 hover:shadow-2xl hover:shadow-gray-200/50">
+                <div className="grid lg:grid-cols-12 gap-4 sm:gap-6 lg:gap-10 items-center">
                   {/* Image */}
                   <div className="lg:col-span-5 order-1 lg:order-none">
-                    <div className="relative overflow-hidden rounded-2xl lg:rounded-3xl bg-gray-200 aspect-[16/10]">
+                    <div className="relative overflow-hidden rounded-xl sm:rounded-2xl lg:rounded-3xl bg-gray-200 aspect-[16/10]">
                       {project.isWinner && (
                         <div className="absolute top-4 left-4 z-10">
                           <span className="inline-flex items-center gap-1 px-3 py-1.5 bg-yellow-400 text-yellow-900 text-xs font-semibold rounded-full shadow-lg">
@@ -135,38 +135,38 @@ const Projects = () => {
 
                   {/* Content */}
                   <div className="lg:col-span-7 order-2 lg:order-none">
-                    <div className="flex items-start gap-6 lg:gap-8">
+                    <div className="flex items-start gap-4 sm:gap-6 lg:gap-8">
                       {/* Number */}
-                      <span className="text-4xl lg:text-6xl font-bold text-gray-300 group-hover:text-gray-400 transition-colors duration-500 hidden lg:block">
+                      <span className="text-3xl sm:text-4xl lg:text-6xl font-bold text-gray-300 group-hover:text-gray-400 transition-colors duration-500 hidden sm:block">
                         {project.number}
                       </span>
 
                       {/* Details */}
                       <div className="flex-1">
-                        <div className="flex items-center gap-3 mb-2">
-                          <span className="text-sm text-gray-500 uppercase tracking-widest">
+                        <div className="flex items-center gap-2 sm:gap-3 mb-2">
+                          <span className="text-xs sm:text-sm text-gray-500 uppercase tracking-widest">
                             {project.category}
                           </span>
                         </div>
 
-                        <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-black mb-2 group-hover:text-gray-800 transition-colors duration-300 leading-tight">
+                        <h3 className="text-xl sm:text-2xl lg:text-4xl font-bold text-black mb-2 group-hover:text-gray-800 transition-colors duration-300 leading-tight">
                           {project.title}
                         </h3>
 
-                        <p className="text-sm lg:text-base text-gray-500 mb-3">
+                        <p className="text-xs sm:text-sm lg:text-base text-gray-500 mb-2 sm:mb-3">
                           {project.metrics}
                         </p>
 
-                        <p className="text-gray-700 leading-relaxed text-base lg:text-lg group-hover:text-gray-900 transition-colors duration-300 mb-5">
+                        <p className="text-gray-700 leading-relaxed text-sm sm:text-base lg:text-lg group-hover:text-gray-900 transition-colors duration-300 mb-4 sm:mb-5">
                           {project.description}
                         </p>
 
                         {/* Technologies */}
-                        <div className="flex flex-wrap gap-2 mb-6">
+                        <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4 sm:mb-6">
                           {project.technologies.map((tech, techIndex) => (
                             <span
                               key={techIndex}
-                              className="text-sm text-gray-600 bg-white px-3 lg:px-4 py-1.5 lg:py-2 rounded-full border border-gray-200 group-hover:bg-gray-50 group-hover:border-gray-300 transition-all duration-300"
+                              className="text-xs sm:text-sm text-gray-600 bg-white px-2.5 sm:px-3 lg:px-4 py-1 sm:py-1.5 lg:py-2 rounded-full border border-gray-200 group-hover:bg-gray-50 group-hover:border-gray-300 transition-all duration-300"
                             >
                               {tech}
                             </span>
@@ -174,15 +174,15 @@ const Projects = () => {
                         </div>
 
                         {/* Links */}
-                        <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-2 sm:gap-3">
                           <a
                             href={project.github}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 px-5 py-2.5 bg-black text-white text-sm rounded-full hover:bg-gray-800 transition-all duration-300 font-medium"
+                            className="inline-flex items-center gap-1.5 sm:gap-2 px-4 sm:px-5 py-2 sm:py-2.5 bg-black text-white text-xs sm:text-sm rounded-full hover:bg-gray-800 transition-all duration-300 font-medium"
                             onClick={(e) => e.stopPropagation()}
                           >
-                            <Github size={14} />
+                            <Github size={12} className="sm:w-[14px] sm:h-[14px]" />
                             Code
                           </a>
                           {project.demo && (
@@ -190,10 +190,10 @@ const Projects = () => {
                               href={project.demo}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="inline-flex items-center gap-2 px-5 py-2.5 border border-gray-300 text-black text-sm rounded-full hover:border-black hover:bg-gray-50 transition-all duration-300"
+                              className="inline-flex items-center gap-1.5 sm:gap-2 px-4 sm:px-5 py-2 sm:py-2.5 border border-gray-300 text-black text-xs sm:text-sm rounded-full hover:border-black hover:bg-gray-50 transition-all duration-300"
                               onClick={(e) => e.stopPropagation()}
                             >
-                              <ExternalLink size={12} />
+                              <ExternalLink size={10} className="sm:w-[12px] sm:h-[12px]" />
                               Demo
                             </a>
                           )}
@@ -213,19 +213,19 @@ const Projects = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-16 lg:mt-20 text-center"
+          className="mt-10 sm:mt-16 lg:mt-20 text-center"
         >
           <a
             href="https://github.com/Shams261"
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-3 px-8 py-4 bg-black text-white rounded-full hover:bg-gray-800 transition-all duration-300 font-medium"
+            className="group inline-flex items-center gap-2 sm:gap-3 px-5 sm:px-8 py-3 sm:py-4 bg-black text-white text-sm sm:text-base rounded-full hover:bg-gray-800 transition-all duration-300 font-medium"
           >
-            <Github size={20} />
-            <span>View All Projects on GitHub</span>
+            <Github size={18} className="sm:w-5 sm:h-5" />
+            <span>View All on GitHub</span>
             <ArrowRight
-              size={14}
-              className="group-hover:translate-x-1 transition-transform duration-300"
+              size={12}
+              className="sm:w-[14px] sm:h-[14px] group-hover:translate-x-1 transition-transform duration-300"
             />
           </a>
         </motion.div>
