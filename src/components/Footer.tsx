@@ -83,12 +83,12 @@ const Footer = () => {
 
   const socialLinks = [
     {
-      icon: <Linkedin size={20} />,
+      name: "LinkedIn",
       url: "https://www.linkedin.com/in/shamstabrez-ca/",
       label: "LinkedIn",
     },
     {
-      icon: <Github size={20} />,
+      name: "GitHub",
       url: "https://github.com/Shams261",
       label: "GitHub",
     },
@@ -224,10 +224,10 @@ const Footer = () => {
                     collaborations. Whether you have a project in mind or just
                     want to connect, feel free to reach out.
                   </p>
-                  <div className="flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-3 sm:gap-4">
+                  <div className="flex flex-col gap-3 sm:gap-4">
                     <a
                       href="mailto:shamsshoaib261@gmail.com"
-                      className="group inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 lg:px-8 py-3 sm:py-4 bg-white text-black text-xs sm:text-sm lg:text-base font-medium rounded-full hover:bg-gray-100 transition-all duration-300"
+                      className="group inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 lg:px-8 py-3 sm:py-4 bg-white text-black text-xs sm:text-sm lg:text-base font-medium rounded-full hover:bg-gray-100 transition-all duration-300 w-fit"
                     >
                       <Mail size={16} className="sm:w-[18px] sm:h-[18px]" />
                       <span className="truncate">shamsshoaib261@gmail.com</span>
@@ -236,18 +236,54 @@ const Footer = () => {
                         className="sm:w-[14px] sm:h-[14px] group-hover:translate-x-1 transition-transform duration-300 flex-shrink-0"
                       />
                     </a>
-                    <div className="flex items-center gap-2 sm:gap-3">
+
+                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                       {socialLinks.map((link, index) => (
-                        <a
+                        <motion.a
                           key={index}
                           href={link.url}
                           target="_blank"
                           rel="noopener noreferrer"
                           aria-label={link.label}
-                          className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-gray-700 text-gray-400 hover:text-white hover:border-white transition-all duration-300"
+                          className="group inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 lg:px-8 py-3 sm:py-4 bg-white text-black text-xs sm:text-sm lg:text-base font-medium rounded-full hover:bg-gray-100 transition-all duration-300 w-fit overflow-hidden"
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
                         >
-                          {link.icon}
-                        </a>
+                          <motion.div
+                            className="flex items-center gap-2 sm:gap-3"
+                            whileHover={{
+                              rotateX: 180,
+                              transition: {
+                                duration: 0.6,
+                                ease: [0.23, 1, 0.32, 1],
+                              },
+                            }}
+                            style={{ transformStyle: "preserve-3d" }}
+                          >
+                            <span
+                              className="truncate"
+                              style={{
+                                backfaceVisibility: "hidden",
+                                transform: "rotateX(0deg)",
+                              }}
+                            >
+                              {link.name}
+                            </span>
+                            <span
+                              className="absolute truncate"
+                              style={{
+                                backfaceVisibility: "hidden",
+                                transform: "rotateX(180deg)",
+                              }}
+                            >
+                              {link.name}
+                            </span>
+                          </motion.div>
+                          <ArrowRight
+                            size={12}
+                            className="sm:w-[14px] sm:h-[14px] group-hover:translate-x-1 transition-transform duration-300 flex-shrink-0"
+                          />
+                        </motion.a>
                       ))}
                     </div>
                   </div>
