@@ -120,9 +120,9 @@ const Footer = () => {
                     LET&apos;S TALK
                   </h3>
                   <p className="text-sm sm:text-base lg:text-lg text-gray-400 mb-6 sm:mb-8 max-w-lg leading-relaxed">
-                    I'm actively looking for Full‑Stack / Software Engineer
-                    roles. If you're hiring or want to collaborate, send a quick
-                    note and I'll respond fast.
+                    I&apos;m actively looking for Full‑Stack / Software Engineer
+                    roles. If you&apos;re hiring or want to collaborate, send a
+                    quick note and I&apos;ll respond fast.
                   </p>
 
                   {isSubmitted ? (
@@ -155,7 +155,10 @@ const Footer = () => {
                       </p>
                     </motion.div>
                   ) : (
-                    <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+                    <form
+                      onSubmit={handleSubmit}
+                      className="space-y-4 sm:space-y-6"
+                    >
                       <div>
                         <input
                           type="text"
