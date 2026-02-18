@@ -36,7 +36,7 @@ const Projects = () => {
       title: "DevConnect",
       description:
         "Full-stack developer matchmaking platform using OpenAI embeddings + cosine similarity, serving 300+ active users with 78% match acceptance and 99.2% uptime on AWS EC2.",
-      image: "/devtinderImg.png",
+      image: "/devConnectImg.png",
       technologies: ["React", "Node.js", "MongoDB", "Socket.io"],
       github: "https://github.com/Shams261/DevConnect",
       demo: "https://devtinder.rocks/",
