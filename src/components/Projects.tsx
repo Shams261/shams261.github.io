@@ -8,14 +8,14 @@ const Projects = () => {
   const projects = [
     {
       number: "01",
-      title: "InterviewBuddy",
+      title: "WealthSimple Compliance AI",
       description:
-        "Built AI interview platform using TypeScript serving 200+ users with 1,200+ practice sessions across behavioral, coding, and project modes, achieving 4.7/5 satisfaction.",
-      image: "/InterviewBuddy.png",
-      technologies: ["Next.js", "TypeScript", "OpenAI API", "TailwindCSS"],
-      github: "https://github.com/Shams261/InterviewBuddy",
-      demo: "https://interviewbuddy-ai.vercel.app/",
-      metrics: "200+ Users • 1,200+ Sessions",
+        "AI-powered regulatory compliance system for Canadian financial institutions. Automates extraction of obligations from 10 regulatory sources with 25 domain-specific pattern matchers, citation-backed analysis, and a three-tier LLM fallback chain.",
+      image: "/WealthSimple.png",
+      technologies: ["Python", "FastAPI", "React", "SQLite"],
+      github: "https://github.com/Shams261/wealthsimple-compliance-ai",
+      demo: "https://wealthsimple-compliance-ai.onrender.com",
+      metrics: "91 Tests • 97% Accuracy",
       category: "AI Application",
     },
     {
@@ -33,6 +33,30 @@ const Projects = () => {
     },
     {
       number: "03",
+      title: "ReviewLens AI",
+      description:
+        "Review intelligence portal that ingests Amazon product reviews and analyzes them through a guardrailed AI chat interface with zero hallucinations. Features a three-layer scope guard, citation-backed responses, and 291 tests at 94% coverage.",
+      image: "/ReviewLens.png",
+      technologies: ["React", "TypeScript", "FastAPI", "Groq API"],
+      github: "https://github.com/Shams261/ReviewLens-AI",
+      demo: "https://review-lens-ai-pi.vercel.app/",
+      metrics: "291 Tests • 94% Coverage",
+      category: "AI Application",
+    },
+    {
+      number: "04",
+      title: "InterviewBuddy",
+      description:
+        "Built AI interview platform using TypeScript serving 200+ users with 1,200+ practice sessions across behavioral, coding, and project modes, achieving 4.7/5 satisfaction.",
+      image: "/InterviewBuddy.png",
+      technologies: ["Next.js", "TypeScript", "OpenAI API", "TailwindCSS"],
+      github: "https://github.com/Shams261/InterviewBuddy",
+      demo: "https://interviewbuddy-ai.vercel.app/",
+      metrics: "200+ Users • 1,200+ Sessions",
+      category: "AI Application",
+    },
+    {
+      number: "05",
       title: "DevConnect",
       description:
         "Full-stack developer matchmaking platform using OpenAI embeddings + cosine similarity, serving 300+ active users with 78% match acceptance and 99.2% uptime on AWS EC2.",
