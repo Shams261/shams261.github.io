@@ -7,9 +7,21 @@ const Experience = () => {
     {
       number: "01",
       title: "Software Engineer",
+      company: "AdvantageClub.ai",
+      location: "India",
+      period: "Aug 2024 - Present",
+      description: [
+        "Developed an OCR-based document processing pipeline using Tesseract + OpenCV, including image preprocessing (noise reduction, formatting normalization) and text extraction for digital and manually uploaded expense bills; reducing manual verification effort by ~60% and improving claims processing speed across enterprise reimbursement workflows",
+        "Built rule-based fraud detection logic to flag inconsistent or tampered reimbursement submissions (duplicate claims, mismatched bill metadata, invalid formats) before admin approval reducing erroneous approvals and strengthening compliance in a regulated enterprise environment serving 200K+ employees",
+        "Implemented full-lifecycle reimbursement workflows using Node.js/Express and React, designing APIs for claim submission, validation, multi-tier approval routing, and status tracking enabling automated processing of both manual uploads and direct platform purchases at enterprise scale",
+      ],
+    },
+    {
+      number: "02",
+      title: "Software Engineer",
       company: "Accenture",
       location: "WB, India",
-      period: "Dec 2022 - Aug 2023",
+      period: "Sept 2021 - Aug 2023",
       description: [
         "Re-architected configuration system for enterprise SaaS platform, implementing server-side in-memory caching and streamlined REST APIs, delivering 30% performance gain and <200ms response time",
         "Led full-stack development for enterprise client application, implementing automated testing (Jest) and CI/CD pipelines that reduced post-deployment defects by 40%",
@@ -17,18 +29,18 @@ const Experience = () => {
         "Designed and optimized backend APIs and SQL queries, improving data retrieval performance by 40%",
       ],
     },
-    {
-      number: "02",
-      title: "Junior Software Engineer",
-      company: "Accenture",
-      location: "Bangalore, India",
-      period: "Sept 2021 - Nov 2022",
-      description: [
-        "Resolved 150+ production defects by implementing systematic debugging workflows, reducing critical issue backlog by 50% and improving uptime to 99.2%",
-        "Engineered frontend UI enhancements using JavaScript, implementing responsive design patterns across 20+ application screens",
-        "Established testing protocols and created 25+ technical documentation artifacts, reducing new developer onboarding time by 35%",
-      ],
-    },
+    // {
+    //   number: "03",
+    //   title: "Software Engineer",
+    //   company: "Accenture",
+    //   location: "Bangalore, India",
+    //   period: "Sept 2021 - Nov 2022",
+    //   description: [
+    //     "Resolved 150+ production defects by implementing systematic debugging workflows, reducing critical issue backlog by 50% and improving uptime to 99.2%",
+    //     "Engineered frontend UI enhancements using JavaScript, implementing responsive design patterns across 20+ application screens",
+    //     "Established testing protocols and created 25+ technical documentation artifacts, reducing new developer onboarding time by 35%",
+    //   ],
+    // },
   ];
 
   const containerVariants = {
@@ -49,7 +61,10 @@ const Experience = () => {
   };
 
   return (
-    <section id="experience" className="py-12 sm:py-16 lg:py-20 bg-white relative">
+    <section
+      id="experience"
+      className="py-12 sm:py-16 lg:py-20 bg-white relative"
+    >
       <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-16 xl:px-24">
         {/* Header - Large Typography */}
         <motion.div
@@ -71,7 +86,7 @@ const Experience = () => {
           {/* Divider line */}
           <div className="w-full h-px bg-gray-200 mb-6 sm:mb-10" />
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-500 max-w-3xl leading-relaxed">
-            3+ years building and shipping software across enterprise and
+            4+ years building and shipping software across enterprise and
             personal products, with a focus on scalable systems, reliability,
             and performance.
           </p>
