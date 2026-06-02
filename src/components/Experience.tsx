@@ -86,7 +86,7 @@ const Experience = () => {
           {/* Divider line */}
           <div className="w-full h-px bg-gray-200 mb-6 sm:mb-10" />
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-500 max-w-3xl leading-relaxed">
-            4+ years building and shipping software across enterprise and
+            ~4 years building and shipping software across enterprise and
             personal products, with a focus on scalable systems, reliability,
             and performance.
           </p>
