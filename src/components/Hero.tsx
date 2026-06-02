@@ -66,7 +66,7 @@ const Hero = () => {
             >
               {/* Left - Description */}
               <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed max-w-xl">
-                Software engineer with 3+ years of experience building and
+                Software engineer with ~4 years of experience building and
                 optimizing full stack SAAS applications, with a strong focus on
                 performance, reliability, and developer productivity.
                 Experienced in React, Node.js, backend APIs and AI-driven
@@ -76,7 +76,7 @@ const Hero = () => {
               {/* Right - Stats */}
               <div className="flex flex-wrap items-start gap-6 sm:gap-8">
                 {[
-                  { value: "3+", label: "Years at Accenture" },
+                  { value: "~4", label: "Years Experience" },
                   { value: "MS", label: "Computer Science" },
                   {
                     value: "🏆",
