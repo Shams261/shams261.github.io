@@ -5,9 +5,26 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  title: "Shams - Software Engineer",
+  metadataBase: new URL("https://shams261-github-io.vercel.app"),
+  title: "Shams Tabrez | Full Stack Software Engineer",
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "Shams Tabrez | Full Stack Software Engineer",
+    description: "Reliable SaaS platforms, backend systems, and applied AI. Explore my experience at 1Visa.io, AdvantageClub.ai, and Accenture.",
+    url: "/",
+    siteName: "Shams Tabrez",
+    type: "website",
+    locale: "en_CA",
+    images: [{ url: "/social-preview.png", width: 1200, height: 630, alt: "Shams Tabrez — Full Stack Software Engineer" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Shams Tabrez | Full Stack Software Engineer",
+    description: "Reliable SaaS platforms, backend systems, and applied AI.",
+    images: ["/social-preview.png"],
+  },
   description:
-    "Personal portfolio website of Shams Tabrez, a software developer showcasing skills, experience, and projects.",
+    "Shams Tabrez is a full-stack software engineer in Toronto building reliable SaaS platforms, backend systems, and AI-powered products. Explore experience, projects, and resume.",
   keywords: [
     "portfolio",
     "developer",
@@ -35,10 +52,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+    <html lang="en">
       <body
         className={`${inter.variable} font-sans antialiased`}
-        suppressHydrationWarning
       >
         {children}
       </body>
