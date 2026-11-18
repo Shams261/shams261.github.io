@@ -1,19 +1,26 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
-import { ArrowUpRight, ArrowUp, Mail } from "lucide-react";
-import { navigation, resumeUrl } from "@/data/portfolio";
+import { useState, useEffect } from "react";
+import { Mail, ArrowUp, ArrowRight } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
+import { resumeUrl } from "@/data/portfolio";
 
-type Status = "idle" | "sending" | "success" | "error";
+const Footer = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
 
-export default function Footer() {
-  const [status, setStatus] = useState<Status>("idle");
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
 
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    if (status === "sending") return;
-    setStatus("sending");
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (isSubmitting) return;
+    setIsSubmitting(true);
+    setSubmitError(false);
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 15000);
     try {
@@ -26,48 +33,325 @@ export default function Footer() {
         signal: controller.signal,
       });
       if (!response.ok) throw new Error("Message could not be sent");
+      setIsSubmitted(true);
       setFormData({ name: "", email: "", message: "" });
-      setStatus("success");
     } catch {
-      setStatus("error");
+      setSubmitError(true);
     } finally {
       clearTimeout(timeout);
+      setIsSubmitting(false);
     }
-  }
+  };
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const [currentYear, setCurrentYear] = useState(2024);
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    setCurrentYear(new Date().getFullYear());
+
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 500);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+  };
+
+  const socialLinks = [
+    {
+      name: "LinkedIn",
+      url: "https://www.linkedin.com/in/shamstabrez-ca/",
+      label: "LinkedIn",
+    },
+    {
+      name: "GitHub",
+      url: "https://github.com/Shams261",
+      label: "GitHub",
+    },
+  ];
+
+  const navLinks = [
+    { name: "Services", href: "#services" },
+    { name: "Experience", href: "#experience" },
+    { name: "Projects", href: "#projects" },
+    { name: "Skills", href: "#skills" },
+  ];
 
   return (
-    <footer id="connect" className="bg-[#0a0a0a] text-white">
-      <div className="page-container py-12 sm:py-16">
-        <div className="grid gap-10 lg:grid-cols-2 lg:gap-20">
-          <div>
-            <p className="mb-4 text-xs uppercase tracking-[0.2em] text-gray-400">Have an opportunity in mind?</p>
-            <h2 className="text-5xl font-bold tracking-tighter sm:text-6xl">LET&apos;S TALK.</h2>
-            <p className="mt-5 max-w-md text-base leading-relaxed text-gray-300">I&apos;m open to full-stack and software engineering opportunities. Reach out about your team, a role, or a product you&apos;re building.</p>
-            <a href="mailto:shamsshoaib261@gmail.com" className="mt-7 inline-flex min-h-11 max-w-full items-center gap-2 text-sm font-medium underline decoration-gray-500 underline-offset-4 sm:text-base"><Mail size={18} className="shrink-0" aria-hidden="true" /><span className="break-all">shamsshoaib261@gmail.com</span></a>
-            <div className="mt-5 flex flex-wrap gap-5">
-              {[{ label: "LinkedIn", href: "https://www.linkedin.com/in/shamstabrez-ca/" }, { label: "GitHub", href: "https://github.com/Shams261" }].map(link => <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center gap-1 text-sm text-gray-300 hover:text-white">{link.label}<ArrowUpRight size={16} aria-hidden="true" /></a>)}
-              <a href={resumeUrl} download="Shams_Resume.pdf" className="inline-flex min-h-11 items-center text-sm text-gray-300 hover:text-white">Download Resume</a>
+    <>
+      <footer id="connect" className="relative overflow-hidden">
+        {/* CTA Section with Contact Form */}
+        <div className="bg-black text-white py-8 sm:py-10 lg:py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+            <div className="bg-gray-900/50 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-10 border border-gray-800 ring-1 ring-white/5">
+              <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-start">
+                {/* Left - Contact Form */}
+                <motion.div
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight tracking-tighter mb-4 sm:mb-6">
+                    LET&apos;S TALK
+                  </h3>
+                  <p className="text-sm sm:text-base lg:text-lg text-gray-400 mb-6 sm:mb-8 max-w-lg leading-relaxed">
+                    I&apos;m actively looking for Full‑Stack / Software Engineer
+                    roles. If you&apos;re hiring or want to collaborate, send a
+                    quick note and I&apos;ll respond fast.
+                  </p>
+
+                  {isSubmitted ? (
+                    <motion.div
+                      role="status"
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      className="bg-green-50 border border-green-200 rounded-2xl p-8 text-center"
+                    >
+                      <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg
+                          className="w-6 h-6 text-white"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                      </div>
+                      <h4 className="text-lg font-semibold text-green-800 mb-2">
+                        Message Sent!
+                      </h4>
+                      <p className="text-green-600">
+                        Thank you for reaching out. I&apos;ll get back to you
+                        soon.
+                      </p>
+                    </motion.div>
+                  ) : (
+                    <form
+                      onSubmit={handleSubmit}
+                      aria-label="Contact Shams"
+                      aria-busy={isSubmitting}
+                      className="space-y-4 sm:space-y-6"
+                    >
+                      <div>
+                        <label htmlFor="contact-name" className="sr-only">Your name</label>
+                        <input
+                          type="text"
+                          id="contact-name"
+                          maxLength={120}
+                          autoComplete="name"
+                          name="name"
+                          placeholder="Your Name"
+                          value={formData.name}
+                          onChange={handleChange}
+                          required
+                          className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-white/10 border border-gray-600 rounded-lg sm:rounded-xl text-sm sm:text-base text-white placeholder-gray-400 focus:outline-none focus:border-white transition-colors duration-300"
+                        />
+                      </div>
+
+                      <div>
+                        <label htmlFor="contact-email" className="sr-only">Email address</label>
+                        <input
+                          type="email"
+                          id="contact-email"
+                          maxLength={254}
+                          autoComplete="email"
+                          name="email"
+                          placeholder="Your Email"
+                          value={formData.email}
+                          onChange={handleChange}
+                          required
+                          className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-white/10 border border-gray-600 rounded-lg sm:rounded-xl text-sm sm:text-base text-white placeholder-gray-400 focus:outline-none focus:border-white transition-colors duration-300"
+                        />
+                      </div>
+
+                      <div>
+                        <label htmlFor="contact-message" className="sr-only">Your message</label>
+                        <textarea
+                          id="contact-message"
+                          maxLength={5000}
+                          name="message"
+                          placeholder="Tell me about your project..."
+                          value={formData.message}
+                          onChange={handleChange}
+                          required
+                          rows={4}
+                          className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-white/10 border border-gray-600 rounded-lg sm:rounded-xl text-sm sm:text-base text-white placeholder-gray-400 focus:outline-none focus:border-white transition-colors duration-300 resize-none"
+                        />
+                      </div>
+
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="w-full py-3 sm:py-4 bg-white text-black text-sm sm:text-base font-semibold rounded-lg sm:rounded-xl hover:bg-gray-100 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed tracking-tight"
+                      >
+                        {isSubmitting ? "Sending..." : "Send Message"}
+                      </button>
+                      <div aria-live="polite" aria-atomic="true">
+                        {submitError && <p className="text-sm text-red-300">Your message couldn&apos;t be sent. Please try again or <a href="mailto:shamsshoaib261@gmail.com" className="underline">email me directly</a>.</p>}
+                      </div>
+                    </form>
+                  )}
+                </motion.div>
+
+                {/* Right - Get in Touch Content */}
+                <motion.div
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                  className="lg:pl-8"
+                >
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight tracking-tighter mb-4 sm:mb-6">
+                    LET&apos;S MAKE IT
+                    <br />
+                    <span className="text-gray-400">HAPPEN</span>
+                  </h2>
+                  <p className="text-sm sm:text-base lg:text-lg text-gray-400 mb-6 sm:mb-10 max-w-xl leading-relaxed">
+                    I&apos;m currently open to new opportunities and
+                    collaborations. Whether you have a project in mind or just
+                    want to connect, feel free to reach out.
+                  </p>
+                  <div className="flex flex-col gap-3 sm:gap-4">
+                    <a
+                      href="mailto:shamsshoaib261@gmail.com"
+                      className="group inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 lg:px-8 py-3 sm:py-4 bg-white text-black text-xs sm:text-sm lg:text-base font-medium rounded-full hover:bg-gray-100 transition-all duration-300 w-fit"
+                    >
+                      <Mail size={16} className="sm:w-[18px] sm:h-[18px]" />
+                      <span className="truncate">shamsshoaib261@gmail.com</span>
+                      <ArrowRight
+                        size={12}
+                        className="sm:w-[14px] sm:h-[14px] group-hover:translate-x-1 transition-transform duration-300 flex-shrink-0"
+                      />
+                    </a>
+
+                    <a href={resumeUrl} download="Shams_Resume.pdf" className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black text-sm font-medium rounded-full hover:bg-gray-100 transition-colors w-fit">Download Resume <ArrowRight size={14} aria-hidden="true" /></a>
+                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                      {socialLinks.map((link, index) => (
+                        <motion.a
+                          key={index}
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={link.label}
+                          className="group inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 lg:px-8 py-3 sm:py-4 bg-white text-black text-xs sm:text-sm lg:text-base font-medium rounded-full hover:bg-gray-100 transition-all duration-300 w-fit overflow-hidden"
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                        >
+                          <motion.div
+                            className="flex items-center gap-2 sm:gap-3"
+                            whileHover={{
+                              rotateX: 180,
+                              transition: {
+                                duration: 0.6,
+                                ease: [0.23, 1, 0.32, 1],
+                              },
+                            }}
+                            style={{ transformStyle: "preserve-3d" }}
+                          >
+                            <span
+                              className="truncate"
+                              style={{
+                                backfaceVisibility: "hidden",
+                                transform: "rotateX(0deg)",
+                              }}
+                            >
+                              {link.name}
+                            </span>
+                            <span
+                              className="absolute truncate"
+                              style={{
+                                backfaceVisibility: "hidden",
+                                transform: "rotateX(180deg)",
+                              }}
+                            >
+                              {link.name}
+                            </span>
+                          </motion.div>
+                          <ArrowRight
+                            size={12}
+                            className="sm:w-[14px] sm:h-[14px] group-hover:translate-x-1 transition-transform duration-300 flex-shrink-0"
+                          />
+                        </motion.a>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
             </div>
           </div>
-          <form onSubmit={handleSubmit} aria-label="Contact Shams" aria-busy={status === "sending"} className="space-y-5">
-            <div className="grid gap-5 sm:grid-cols-2">
-              <div><label htmlFor="contact-name" className="mb-2 block text-sm text-gray-200">Your name</label><input id="contact-name" name="name" autoComplete="name" required maxLength={120} value={formData.name} onChange={event => setFormData({ ...formData, name: event.target.value })} className="contact-input" /></div>
-              <div><label htmlFor="contact-email" className="mb-2 block text-sm text-gray-200">Email address</label><input id="contact-email" name="email" type="email" autoComplete="email" required maxLength={254} value={formData.email} onChange={event => setFormData({ ...formData, email: event.target.value })} className="contact-input" /></div>
-            </div>
-            <div><label htmlFor="contact-message" className="mb-2 block text-sm text-gray-200">Your message</label><textarea id="contact-message" name="message" required maxLength={5000} rows={5} placeholder="Tell me about the role, your team, or your project." value={formData.message} onChange={event => setFormData({ ...formData, message: event.target.value })} className="contact-input resize-y" /></div>
-            <button type="submit" disabled={status === "sending"} className="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-black transition-colors hover:bg-gray-200 disabled:cursor-wait disabled:opacity-60">{status === "sending" ? "Sending…" : "Send Message"}</button>
-            <div aria-live="polite" aria-atomic="true" className="text-sm leading-relaxed">
-              {status === "success" && <p className="text-green-300">Message sent. Thank you for reaching out!</p>}
-              {status === "error" && <p className="text-red-300">Your message couldn&apos;t be sent. Please try again or <a href="mailto:shamsshoaib261@gmail.com" className="underline underline-offset-4">email me directly</a>.</p>}
-            </div>
-          </form>
         </div>
-        <div className="mt-12 flex flex-wrap items-center justify-between gap-5 border-t border-gray-700 pt-6">
-          <p className="text-sm text-gray-400">© {new Date().getFullYear()} Shams Tabrez</p>
-          <nav aria-label="Footer navigation" className="flex flex-wrap gap-5">{navigation.map(link => <a key={link.href} href={link.href} className="inline-flex min-h-11 items-center text-sm text-gray-300 hover:text-white">{link.name}</a>)}</nav>
-          <a href="#home" className="inline-flex min-h-11 items-center gap-2 text-sm text-gray-300">Back to top<ArrowUp size={16} aria-hidden="true" /></a>
+
+        {/* Bottom Bar */}
+        <div className="bg-gray-950 py-4 sm:py-6">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6">
+              {/* Logo */}
+              <a
+                href="#home"
+                className="text-lg sm:text-2xl font-bold text-white hover:opacity-70 transition-opacity duration-300"
+              >
+                My PortFolio<span className="text-gray-500"></span>
+              </a>
+
+              {/* Nav Links */}
+              <nav className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 lg:gap-8">
+                {navLinks.map((link, index) => (
+                  <a
+                    key={index}
+                    href={link.href}
+                    className="text-xs sm:text-sm text-gray-500 hover:text-white transition-colors duration-300"
+                  >
+                    {link.name}
+                  </a>
+                ))}
+              </nav>
+
+              {/* Copyright */}
+              <p className="text-xs sm:text-sm text-gray-600">
+                © {currentYear} Shams Tabrez
+              </p>
+            </div>
+          </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+
+      {/* Scroll to Top */}
+      <AnimatePresence>
+        {showScrollTop && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            onClick={scrollToTop}
+            className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-50 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black text-white shadow-2xl hover:bg-gray-800 transition-all duration-300 btn-hover"
+            aria-label="Scroll to top"
+          >
+            <ArrowUp size={14} className="sm:w-4 sm:h-4" />
+          </motion.button>
+        )}
+      </AnimatePresence>
+    </>
   );
-}
+};
+
+export default Footer;

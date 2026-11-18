@@ -67,9 +67,3 @@ export const experiences: ExperienceEntry[] = [
 ];
 
 export const resumeUrl = "/Shams_Resume.pdf";
-export const navigation = [
-  { name: "Experience", href: "#experience" },
-  { name: "Projects", href: "#projects" },
-  { name: "Skills", href: "#skills" },
-  { name: "About", href: "#about" },
-];
