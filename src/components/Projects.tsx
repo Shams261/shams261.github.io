@@ -1,15 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, ExternalLink, ArrowRight } from "lucide-react";
+import { Github, ExternalLink, ArrowRight, ChevronDown } from "lucide-react";
 import Image from "next/image";
-import { featuredProjects, moreProjects } from "@/data/projects";
+import { featuredProjects, moreProjects, type Project } from "@/data/projects";
 
-const Projects = () => {
-  const projects = [...featuredProjects, ...moreProjects].map((project, index) => ({
+const ProjectCards = ({ items, startIndex = 0 }: { items: Project[]; startIndex?: number }) => {
+  const projects = items.map((project, index) => ({
     ...project,
     title: project.name,
-    number: String(index + 1).padStart(2, "0"),
+    number: String(startIndex + index + 1).padStart(2, "0"),
     metrics: project.highlight,
     isWinner: project.name === "Verity",
   }));
@@ -32,35 +32,6 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-12 sm:py-16 lg:py-20 bg-white relative">
-      <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-16 xl:px-24">
-        {/* Header - Large Typography */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-12 sm:mb-16 lg:mb-28"
-        >
-          {/* Large heading */}
-          <div className="flex flex-wrap items-end gap-2 sm:gap-4 lg:gap-6 mb-6 sm:mb-10">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-[10rem] font-bold text-black leading-[0.85] tracking-tighter">
-              SELECTED
-            </h2>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-[10rem] font-bold text-gray-400 leading-[0.85] tracking-tighter">
-              WORK
-            </h2>
-          </div>
-          {/* Divider line */}
-          <div className="w-full h-px bg-gray-200 mb-6 sm:mb-10" />
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-500 max-w-3xl leading-relaxed">
-            A selection of projects I’ve shipped, full-stack platforms and AI
-            applications built with clean UX, reliable APIs, and scalable
-            architecture.
-          </p>
-        </motion.div>
-
-        {/* Projects Cards */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -188,6 +159,51 @@ const Projects = () => {
             </motion.div>
           ))}
         </motion.div>
+  );
+};
+
+const Projects = () => {
+  return (
+    <section id="projects" className="py-12 sm:py-16 lg:py-20 bg-white relative">
+      <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-16 xl:px-24">
+        {/* Header - Large Typography */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-12 sm:mb-16 lg:mb-28"
+        >
+          {/* Large heading */}
+          <div className="flex flex-wrap items-end gap-2 sm:gap-4 lg:gap-6 mb-6 sm:mb-10">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-[10rem] font-bold text-black leading-[0.85] tracking-tighter">
+              SELECTED
+            </h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-[10rem] font-bold text-gray-400 leading-[0.85] tracking-tighter">
+              WORK
+            </h2>
+          </div>
+          {/* Divider line */}
+          <div className="w-full h-px bg-gray-200 mb-6 sm:mb-10" />
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-500 max-w-3xl leading-relaxed">
+            A selection of projects I’ve shipped, full-stack platforms and AI
+            applications built with clean UX, reliable APIs, and scalable
+            architecture.
+          </p>
+        </motion.div>
+
+        {/* Projects Cards */}
+        <ProjectCards items={featuredProjects} />
+
+        <details className="group/more mt-8 sm:mt-12">
+          <summary className="mx-auto flex min-h-12 w-fit cursor-pointer list-none items-center justify-center gap-3 rounded-full border border-gray-300 px-5 py-3 text-sm font-medium text-black transition-colors hover:border-black hover:bg-gray-50 sm:px-8 sm:text-base [&::-webkit-details-marker]:hidden">
+            <span>Explore more projects · {moreProjects.length}</span>
+            <ChevronDown size={18} aria-hidden="true" className="transition-transform duration-300 group-open/more:rotate-180" />
+          </summary>
+          <div className="mt-6">
+            <ProjectCards items={moreProjects} startIndex={featuredProjects.length} />
+          </div>
+        </details>
 
         {/* View All CTA */}
         <motion.div
