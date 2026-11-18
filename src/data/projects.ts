@@ -32,6 +32,18 @@ export const featuredProjects: Project[] = [
     highlight: "Hackathon winner · 2.97M posts · 3× faster responses",
   },
   {
+    name: "InterviewBuddy",
+    category: "AI Interview Platform",
+    description: "Built an AI interview platform using TypeScript serving 200+ users with 1,200+ practice sessions across behavioral, coding, and project modes, achieving 4.7/5 satisfaction.",
+    technologies: ["Next.js", "TypeScript", "OpenAI API", "Tailwind CSS"],
+    github: "https://github.com/Shams261/InterviewBuddy",
+    demo: "https://interviewbuddy-ai.vercel.app/",
+    image: "/InterviewBuddy.png",
+  },
+];
+
+export const moreProjects: Project[] = [
+  {
     name: "ReviewLens AI",
     category: "AI Application",
     description: "Review intelligence portal that ingests Amazon product reviews and analyzes them through a guardrailed AI chat interface. Features a three-layer scope guard, citation-backed responses, and 291 tests at 94% coverage.",
@@ -41,9 +53,6 @@ export const featuredProjects: Project[] = [
     image: "/ReviewLens.png",
     highlight: "Citation-backed answers · Scope guards",
   },
-];
-
-export const moreProjects: Project[] = [
   {
     name: "WealthSimple Compliance AI",
     category: "Independent AI Project",
@@ -52,15 +61,6 @@ export const moreProjects: Project[] = [
     github: "https://github.com/Shams261/wealthsimple-compliance-ai",
     demo: "https://wealthsimple-compliance-ai.onrender.com",
     image: "/WealthSimple.png",
-  },
-  {
-    name: "InterviewBuddy",
-    category: "AI Interview Platform",
-    description: "Built an AI interview platform using TypeScript serving 200+ users with 1,200+ practice sessions across behavioral, coding, and project modes, achieving 4.7/5 satisfaction.",
-    technologies: ["Next.js", "TypeScript", "OpenAI API", "Tailwind CSS"],
-    github: "https://github.com/Shams261/InterviewBuddy",
-    demo: "https://interviewbuddy-ai.vercel.app/",
-    image: "/InterviewBuddy.png",
   },
   {
     name: "DevConnect",
